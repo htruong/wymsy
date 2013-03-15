@@ -1,0 +1,65 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div><a href="javascript:showSauce();">Show me the Markdown code!</a> | <a href="https://github.com/htruong/wymsy">Fork WYMSY on github</a></div>
+<h2>WYMSY demo page</h2>
+<div class="span10 editorview">
+	<div id="editor" class="editor-inner"></div>
+	<form id="docform" method="POST">
+		<textarea id="sauce" name="sauce" class="textbox-full">
+Welcome to Wymsy
+================
+
+What is wymsy?
+---
+
+Wymsy is a small and powerful **What You See is What You Mean** (WYSWYM) editor.
+
+You can click on any papragraph to start editing. After you edited the paragraph and move to the next one, the old one will appear **What You See is What You Get**.
+
+What wymsy is not?
+---
+
+Wymsy is not an engine that translates HTML to Markdown. It only allows you to edit Markdown code in a more user-friendly manner.
+
+
+What is buggy or doesn't work now
+---
+
+List handling, code handling, annotations doesn't work. Probably need more time to work on it.
+
+I don't have a bunch of time. If you could help, fork or send me a pull request via github.
+
+Author
+---
+
+Huan Truong [UNDERSCORE AT tnhh.net] - Underscore sign _, not "UNDERSCORE".
+		</textarea>
+		
+	</form>
+</div>
+<script src="jquery-latest.js"></script>
+<script src="stack.js"></script>
+<script src="marked/lib/marked.js"></script>
+<script src="wymsy.js"></script>
+
+<script>
+    wymsy_basic = new WYMSY(
+            {
+                source:$('#sauce').val(),
+                editorarea:$('#editor'),
+                destination:$('#sauce')
+            }
+    );
+    $('#sauce').hide();
+    
+    showSauce = function() {
+		alert($('#sauce').val());
+		return false;
+    }
+</script>
+</body>
+</html>
